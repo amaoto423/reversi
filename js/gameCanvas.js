@@ -17,5 +17,5 @@ class GameCanvas{
         cobj.canvas.style.background="url(image/bg.png)";
         return cobj;
     };
-
+//testtest
 }
