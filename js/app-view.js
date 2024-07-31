@@ -15,3 +15,22 @@ appView.drawSquare = function (posX, posY) {
 appView.drawBoard = function () {
   revLow.scanBoard(this.drawSquare);
 };
+
+appView.drawToken = function () {
+  const { unit } = appLayout;
+  revLow.scanBoard((posX, posY) => {
+    if (revCore.data.board[posX][posY] === RevData.blank) return;
+    else {
+      const { x, y } = appLayout.boardToPixel(posX, posY);
+
+      resImage.draw(
+        `token-${revCore.data.board[posX][posY]}`,
+        appView.cobj,
+        x,
+        y,
+        unit,
+        unit
+      );
+    }
+  });
+};
