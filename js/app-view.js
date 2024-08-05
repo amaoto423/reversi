@@ -34,3 +34,18 @@ appView.drawToken = function () {
     }
   });
 };
+
+appView.drawCanPut = function () {
+  const { unit } = appLayout;
+    revCore.data.activeSquare.forEach(Squ => {
+      const { x, y } = appLayout.boardToPixel(Squ.x, Squ.y);
+      resImage.draw(
+        "active",
+        appView.cobj,
+        x,
+        y,
+        unit,
+        unit
+      );
+    });
+  }

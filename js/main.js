@@ -8,4 +8,5 @@ document.addEventListener("DOMContentLoaded", async function () {
   appView.init();
   appView.drawBoard();
   appView.drawToken();
+  appView.drawCanPut();
 });
