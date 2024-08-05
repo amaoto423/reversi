@@ -9,4 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   appView.drawBoard();
   appView.drawToken();
   appView.drawCanPut();
+  let { cobj } = appView;
+  let text = "You02COM02";
+  resFont.draw("main", cobj, text, cobj.w / 2, cobj.h / 2, 1, cobj.w);
 });
