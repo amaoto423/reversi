@@ -6,10 +6,5 @@ document.addEventListener("DOMContentLoaded", async function () {
   const r = await appResouce.load();
   console.log(r);
   appView.init();
-  appView.drawBoard();
-  appView.drawToken();
-  appView.drawCanPut();
-  let { cobj } = appView;
-  let text = "You02COM02";
-  resFont.draw("main", cobj, text, cobj.w / 2, cobj.h / 2, 1, cobj.w);
+  appView.update();
 });
