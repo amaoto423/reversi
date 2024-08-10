@@ -21,5 +21,5 @@ gameAnim.add = function (id, func) {
   this.holder.push({ id, func });
 };
 gameAnim.remove = function (id) {
-  this.holder.filter((x) => x.id !== id);
+  this.holder=this.holder.filter((x) => x.id !== id);
 };

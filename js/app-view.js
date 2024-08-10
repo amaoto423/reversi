@@ -71,3 +71,5 @@ appView.update = function () {
   this.drawScoreText();
   this.drawCanPut();
 };
+
+
