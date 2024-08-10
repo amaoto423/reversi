@@ -27,3 +27,32 @@ appEffect.popupMessage=async function(text){
              
         })
 }
+
+appEffect.updateBoard=async function(){
+    
+    await appEffect.effectPromise("update",1000,rate=>{
+        const {context}=appView.cobj;
+        const {unit}=appLayout;
+        context.lineWidth=unit*0.15;
+        context.strokeStyle='#9fffff';
+        const putToken= revCore.data.putToken;
+        const putTokenPos=appLayout.boardToPixel(putToken.x,putToken.y);
+        const revTokens=revCore.data.revTokens;
+        console.log(revTokens);
+        const revTokensPos=revTokens.map(token=>
+            appLayout.boardToPixel(token.x,token.y)
+        )
+        context.strokeRect(putTokenPos.x,putTokenPos.y,unit,unit);
+        console.log(revTokensPos);
+        revTokensPos.forEach(tokenPos => {
+            context.save()
+            context.translate(tokenPos.x+unit/2,tokenPos.y+unit/2);
+            context.rotate(10*rate);
+            context.strokeRect(-unit/2,-unit/2,unit,unit);
+            context.restore();
+        });
+
+
+    })
+
+}

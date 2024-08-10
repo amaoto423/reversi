@@ -21,6 +21,6 @@ class RevData {
     ];
     this.putToken = { x: 0, y: 0 };
     this.activeSquares = [];
-    this.revToekns = [];
+    this.revTokens = [];
   }
 }
