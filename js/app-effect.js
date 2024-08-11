@@ -38,12 +38,11 @@ appEffect.updateBoard=async function(){
         const putToken= revCore.data.putToken;
         const putTokenPos=appLayout.boardToPixel(putToken.x,putToken.y);
         const revTokens=revCore.data.revTokens;
-        console.log(revTokens);
         const revTokensPos=revTokens.map(token=>
             appLayout.boardToPixel(token.x,token.y)
         )
         context.strokeRect(putTokenPos.x,putTokenPos.y,unit,unit);
-        console.log(revTokensPos);
+        
         revTokensPos.forEach(tokenPos => {
             context.save()
             context.translate(tokenPos.x+unit/2,tokenPos.y+unit/2);
