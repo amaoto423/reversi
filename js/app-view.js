@@ -22,12 +22,12 @@ appView.drawBoard = function () {
 appView.drawToken = function () {
   const { unit } = appLayout;
   revLow.scanBoard((posX, posY) => {
-    if (revCore.data.board[posX][posY] === RevData.blank) return;
+    if (revCore.data.board[posY][posX] === RevData.blank) return;
     else {
       const { x, y } = appLayout.boardToPixel(posX, posY);
 
       resImage.draw(
-        `token-${revCore.data.board[posX][posY]}`,
+        `token-${revCore.data.board[posY][posX]}`,
         appView.cobj,
         x,
         y,

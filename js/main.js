@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   //  const gameCanvas=GameCanvas.addBgCanvas('#reversi',1200,800);
   revCore.init();
   const r = await appResouce.load();
+  
   appView.init();
   appView.update();
 
@@ -19,6 +20,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   gameClick.add(appView.cobj.canvas,"setToken",(eX,eY)=>{
     const Square=appLayout.pixelToBoard(eX,eY);
     if(!Square)return;
-    revCore.data.board[Square.x][Square.y]=1;
+    revCore.data.board[Square.y][Square.x]=1;
+    revLow.scan8Direction(revCore.data.board,Square.x,Square.y,(line,dir)=>{
+      console.log(line);
+    })
   })
+
 });
