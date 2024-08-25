@@ -21,3 +21,8 @@ gameUtil.inRange = function (x, y, rect) {
   }
   return true;
 };
+
+gameUtil.deepClone = function (board) {
+  const Clone = JSON.parse(JSON.stringify(board));
+  return Clone;
+};
