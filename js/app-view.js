@@ -40,7 +40,8 @@ appView.drawToken = function () {
 
 appView.drawCanPut = function () {
   const { unit } = appLayout;
-  revCore.data.activeSquare.forEach((Squ) => {
+
+  revCore.data.activeSquares.forEach((Squ) => {
     const { x, y } = appLayout.boardToPixel(Squ.x, Squ.y);
     resImage.draw("active", appView.cobj, x, y, unit, unit);
   });
@@ -54,8 +55,10 @@ appView.drawScoreImage = function () {
 };
 appView.drawScoreText = function () {
   const { unit, scoreTexts } = appLayout;
+
   scoreTexts.forEach((pos, i) => {
     const name = ["YOU", "COM"][i];
+
     const score = revCore.data.scores[i];
     const scoreText = `${score}`.padStart(2, "0");
     const text = `${name}${scoreText}`;

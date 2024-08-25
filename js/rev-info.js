@@ -17,6 +17,6 @@ revInfo.getScores = function (board) {
     if (board[y][x] === 0) scoreX++;
     if (board[y][x] === 1) scoreY++;
   });
-  revCore.data.scores = [scoreX, scoreY];
-  console.log(revCore.data.scores);
+
+  return [scoreX, scoreY];
 };

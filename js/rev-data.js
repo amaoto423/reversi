@@ -7,7 +7,7 @@ class RevData {
   constructor() {
     this.player = 0;
     this.isEnd = false;
-    this.scores = [2, 2];
+    this.scores = [];
     this.types = ["MAN", "COM"];
     this.board = [
       [8, 8, 8, 8, 8, 8, 8, 8],

@@ -12,14 +12,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
   gameAnim.start();
   await appEffect.popupMessage("start");
-
-  revCore.data.putToken = { x: 2, y: 2 };
-  revCore.data.revTokens = [
-    { x: 3, y: 3 },
-    { x: 4, y: 4 },
-    { x: 5, y: 5 },
-  ];
   await appEffect.updateBoard();
+
+  //PUTTOKEN
+  //BOARDUPDATE
+  //CHANGEPLAYER
 
   gameClick.add(appView.cobj.canvas, "setToken", (eX, eY) => {
     const Square = appLayout.pixelToBoard(eX, eY);
@@ -29,7 +26,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (!revMid.isActive(board, Square.x, Square.y, player)) return;
     revUpdate.reverse(board, Square.x, Square.y, player);
     revUpdate.changePlayer(player);
-
-    revCore.data.activeSquare = revMid.getAllActive(board, revCore.data.player);
+    revCore.update();
+    revCore.data.activeSquares = revMid.getAllActive(
+      board,
+      revCore.data.player
+    );
   });
 });

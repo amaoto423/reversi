@@ -17,6 +17,5 @@ revUpdate.reverse = function (board, x, y, player) {
 
 revUpdate.changePlayer = function (player) {
   revCore.data.player = 1 - player;
-  console.log(revCore.data.player);
   return;
 };

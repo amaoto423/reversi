@@ -7,7 +7,6 @@ testRev.set = function (data) {
 
 testRev.outBoard = function (board) {
   const lineArray = board.map((Array) => Array.join(","));
-  console.log("【BOARD】" + "\n" + lineArray.join("\n"));
 };
 
 testRev.endWin = [
