@@ -12,24 +12,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
   gameAnim.start();
   await appEffect.popupMessage("start");
-  await appEffect.updateBoard();
 
   //PUTTOKEN
-  //BOARDUPDATE
   //CHANGEPLAYER
+  //BOARDUPDATE
 
   gameClick.add(appView.cobj.canvas, "setToken", (eX, eY) => {
-    const Square = appLayout.pixelToBoard(eX, eY);
     const { board, player } = revCore.data;
-
+    const Square = appLayout.pixelToBoard(eX, eY);
     if (!Square) return;
-    if (!revMid.isActive(board, Square.x, Square.y, player)) return;
-    revUpdate.reverse(board, Square.x, Square.y, player);
-    revUpdate.changePlayer(player);
-    revCore.update();
-    revCore.data.activeSquares = revMid.getAllActive(
-      board,
-      revCore.data.player
-    );
+    revCore.putToken(board, Square, player);
   });
 });
