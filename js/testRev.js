@@ -1,8 +1,8 @@
 const testRev = {};
 
 testRev.set = function (data) {
-  //   data.board = gameUtil.deepClone(this.endLose);
-  //   this.outBoard(data.board);
+  data.board = gameUtil.deepClone(this.endLose);
+  this.outBoard(data.board);
 };
 
 testRev.outBoard = function (board) {

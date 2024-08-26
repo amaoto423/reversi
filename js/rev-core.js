@@ -28,4 +28,37 @@ revCore.putToken = function (board, Square, player) {
   appEffect.updateBoard();
   revCore.changePlayer(player);
   revCore.update();
+  if (this.data.isEnd) {
+    this.end();
+  }
+};
+
+revCore.end = async function () {
+  const { cobj } = appView;
+  await appEffect.popupMessage("END");
+  const x = cobj.w / 2;
+  const y = cobj.s / 2;
+
+  const text = "END";
+  //////////////////////バグってる助けて/////////////////////////////
+  gameAnim.add("end", () => {
+    resFont.draw("end", cobj, text, x, y, 2);
+  });
+  ///////////////////////////////////////////////////
+
+  document.addEventListener("keydown", this.handleSpace);
+};
+revCore.restart = async function () {
+  document.removeEventListener("keydown", this.handleSpace);
+  revCore.init();
+  appView.init();
+  appView.update();
+  await appEffect.popupMessage("start");
+};
+
+revCore.handleSpace = function (e) {
+  if (e.code === "Space") {
+    e.preventDefault(); // デフォルトのスペースキー動作を無効化（スクロールなど）
+    revCore.restart();
+  }
 };
