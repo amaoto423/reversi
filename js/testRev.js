@@ -1,7 +1,7 @@
 const testRev = {};
 
 testRev.set = function (data) {
-  data.board = gameUtil.deepClone(this.endLose);
+  data.board = gameUtil.deepClone(this.Draw);
   this.outBoard(data.board);
 };
 
@@ -40,4 +40,14 @@ testRev.endDraw = [
   [1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1],
+];
+testRev.Draw = [
+  [8, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 1, 0, 8, 8, 8],
+  [8, 8, 8, 0, 0, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8],
+  [8, 8, 8, 8, 8, 8, 8, 8],
 ];

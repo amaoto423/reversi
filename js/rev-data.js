@@ -7,6 +7,7 @@ class RevData {
   constructor() {
     this.player = 0;
     this.isEnd = false;
+    this.isPass = false;
     this.scores = [];
     this.types = ["MAN", "COM"];
     this.board = [

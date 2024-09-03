@@ -4,7 +4,7 @@ revCore.init = function () {
   revCore.data = new RevData();
   console.log(this.data);
 
-  testRev.set(this.data);
+  //testRev.set(this.data);
   this.update();
 };
 
@@ -28,9 +28,21 @@ revCore.putToken = function (board, Square, player) {
   appEffect.updateBoard();
   revCore.changePlayer(player);
   revCore.update();
+  if (this.data.activeSquares.length === 0) {
+    revCore.pass();
+  } else {
+    revCore.data.isPass = false;
+  }
   if (this.data.isEnd) {
     this.end();
   }
+};
+
+revCore.pass = function () {
+    await appEffect.popupMessage("PASS");
+  const { player } = revCore.data;
+  revCore.changePlayer(player);
+  revCore.update();
 };
 
 revCore.end = async function () {
