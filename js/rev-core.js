@@ -37,15 +37,15 @@ revCore.end = async function () {
   const { cobj } = appView;
   await appEffect.popupMessage("END");
   const x = cobj.w / 2;
-  const y = cobj.s / 2;
-
-  const text = "END";
+  const y = cobj.h / 2;
+  const text = 'PRESS "SPACE"\nto RESTART';
+  const texts = text.split("\n");
   //////////////////////バグってる助けて/////////////////////////////
   gameAnim.add("end", () => {
-    resFont.draw("end", cobj, text, x, y, 2);
+    resFont.drawMessage("end", cobj, texts, x, y, 2);
   });
   ///////////////////////////////////////////////////
-
+  console.log(gameAnim.holder);
   document.addEventListener("keydown", this.handleSpace);
 };
 revCore.restart = async function () {
